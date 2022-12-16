@@ -211,7 +211,7 @@ class BaseDatabaseWrapper:
         ):
             db_version = ".".join(map(str, self.get_database_version()))
             min_db_version = ".".join(map(str, self.features.minimum_database_version))
-            raise NotSupportedError(
+            warnings.warn(
                 f"{self.display_name} {min_db_version} or later is required "
                 f"(found {db_version})."
             )
